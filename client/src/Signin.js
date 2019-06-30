@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignInSide from './Components/SignInSide';
 import Dashboard from './Components/Dashboard';
+import { Redirect } from 'react-router-dom';
 
 export default class SignIn extends Component {
     constructor() {
@@ -39,7 +40,7 @@ export default class SignIn extends Component {
 
     render() {
         return (
-            (this.state.loggedin) ? <Dashboard /> : <SignInSide onRegister={this.handleSubmit} />
+            (this.state.loggedin) ? <Redirect to="/Dashboard" /> : <SignInSide onRegister={this.handleSubmit} />
         )
     }
 }
