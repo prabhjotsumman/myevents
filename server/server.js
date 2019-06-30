@@ -25,10 +25,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-router.get('/getUser', (req, res) => {
-    User.find((err, data) => {
+router.post('/getUser', (req, res) => {
+    const { email, password } = req.body;
+    console.log(email, password);
+    User.find({email},(err, data) => {
         if (err) return res.json({ success: false, error: err });
-        return res.json({ success: true, data: data });
+        if (data[0].password === password){
+            return res.json({ success: true, status: "authenticated", loggedin:true});
+        } 
     });
 });
 
