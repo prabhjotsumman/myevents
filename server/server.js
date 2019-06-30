@@ -50,17 +50,19 @@ router.delete('/deleteUser', (req, res) => {
 
 router.post('/putUser', (req, res) => {
     let data = new User();
-
-    const { email, username, password } = req.body;
-    console.log(email,password,username);
-    if ((!username ) || !email) {
+    
+    const { name, email, organisationName, mobile, password } = req.body;
+    console.log(name, email, organisationName, mobile, password);
+    if ((!name ) || !email) {
         return res.json({
             success: false,
             error: 'INVALID INPUTS',
         });
     }
+    data.name = name;
     data.email = email;
-    data.username = username;
+    data.organisationName = organisationName;
+    data.mobile = mobile;
     data.password = password;
     data.save((err) => {
         if (err) return res.json({ success: false, error: err });
