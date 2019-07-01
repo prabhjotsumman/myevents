@@ -53,14 +53,15 @@ function handleSubmit(e) {
     formData.forEach((value, key) => { obj[key] = value });
     var json = JSON.stringify(obj);
     console.log(obj);
-    // fetch('http://localhost:3001/putUser', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: json
-    // })
+    fetch('http://localhost:3001/addNewEvent', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: json
+    }).then(res => res.json())
+    .then(json => console.log(json));
 }
 
 export default function AddNewEvent() {

@@ -4,6 +4,7 @@ var cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const User = require('./Models/User');
+const Event = require('./Models/Event');
 const config = require("../config.json");
 const API_PORT = 3001;
 const app = express();
@@ -28,11 +29,11 @@ app.use(logger('dev'));
 router.post('/getUser', (req, res) => {
     const { email, password } = req.body;
     console.log(email, password);
-    User.find({email},(err, data) => {
+    User.find({ email }, (err, data) => {
         if (err) return res.json({ success: false, error: err });
-        if (data[0].password === password){
-            return res.json({ success: true, status: "authenticated", loggedin:true});
-        } 
+        if (data[0].password === password) {
+            return res.json({ success: true, status: "authenticated", loggedin: true });
+        }
     });
 });
 
@@ -54,20 +55,28 @@ router.delete('/deleteUser', (req, res) => {
 
 router.post('/putUser', (req, res) => {
     let data = new User();
-    
-    const { name, email, organisationName, mobile, password } = req.body;
-    console.log(name, email, organisationName, mobile, password);
-    if ((!name ) || !email) {
-        return res.json({
-            success: false,
-            error: 'INVALID INPUTS',
-        });
-    }
-    data.name = name;
-    data.email = email;
-    data.organisationName = organisationName;
-    data.mobile = mobile;
-    data.password = password;
+
+    // const { name, email, organisationName, mobile, password } = req.body;
+    // console.log(name, email, organisationName, mobile, password);
+    // if ((!name) || !email) {
+    //     return res.json({
+    //         success: false,
+    //         error: 'INVALID INPUTS',
+    //     });
+    // }
+    data = Object.assign(data, req.body);
+    data.save((err) => {
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ success: true });
+    });
+});
+
+router.post('/addNewEvent', (req, res) => {
+    let data = new Event();
+    console.log(req.body);
+    data = Object.assign(data,req.body);
+    // data = {data, ...req.body};
+    console.log("Daa ",data);
     data.save((err) => {
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true });
