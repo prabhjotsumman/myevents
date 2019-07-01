@@ -13,26 +13,15 @@ import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from './listItems';
+import AddNewEvent from './AddNewEvent';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
-
-function MadeWithLove() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Built with love by the '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Material-UI
-      </Link>
-            {' team.'}
-        </Typography>
-    );
-}
 
 const drawerWidth = 240;
 
@@ -171,8 +160,8 @@ export default function Dashboard() {
                     <Grid container spacing={3}>
                         {/* Chart */}
                         <Grid item xs={12} md={8} lg={9}>
-                            <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                            <Paper>
+                                <AddNewEvent />
                             </Paper>
                         </Grid>
                         {/* Recent Deposits */}
@@ -189,7 +178,6 @@ export default function Dashboard() {
                         </Grid>
                     </Grid>
                 </Container>
-                <MadeWithLove />
             </main>
         </div>
     );
