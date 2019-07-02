@@ -11,8 +11,8 @@ const app = express();
 app.use(cors());
 const router = express.Router();
 
-// const dbRoute = `mongodb://${config.mlabUser}:${config.mlabPass}@ds243897.mlab.com:43897/myevents`;
-var dbRoute = 'mongodb://127.0.0.1/myevents';
+const dbRoute = `mongodb://${config.mlabUser}:${config.mlabPass}@ds243897.mlab.com:43897/myevents`;
+// var dbRoute = 'mongodb://127.0.0.1/myevents';
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });
 
@@ -80,6 +80,13 @@ router.post('/addNewEvent', (req, res) => {
     data.save((err) => {
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true });
+    });
+});
+
+router.get('/getAllEvents', (req, res) => {
+    Event.find((err, data) => {
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ success: true, data });
     });
 });
 

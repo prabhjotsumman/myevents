@@ -18,7 +18,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MainListItems from './listItems';
-import AddNewEvent from './AddNewEvent';
+import AddNewEvent from './Dashboard/AddNewEvent';
+import AllEvents from './Dashboard/AllEvents';
+import Profile from './Dashboard/Profile';
+import Settings from './Dashboard/Settings';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
@@ -107,16 +110,16 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
-    const [currentSelected, setCurrentSelected] = React.useState(false);
+    const [currentSelected, setCurrentSelected] = React.useState('');
     const handleDrawerOpen = () => {
         setOpen(true);
     };
     const handleDrawerClose = () => {
         setOpen(false);
     };
-    const selectedComponent = (name) =>{
+    const selectedComponent = (name) => {
         console.log(name);
-        setCurrentSelected(true);
+        setCurrentSelected(name);
     }
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -157,7 +160,7 @@ export default function Dashboard() {
                     </IconButton>
                 </div>
                 <Divider />
-                <MainListItems loadSelectedComponent={selectedComponent}/>
+                <MainListItems loadSelectedComponent={selectedComponent} />
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
@@ -165,7 +168,15 @@ export default function Dashboard() {
                     <Grid container spacing={3}>
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper>
-                                <AddNewEvent />
+                                {
+
+                                    currentSelected === "Dashboard" ? <h1>Dashboard</h1>
+                                        : currentSelected === "Add New Event" ? <AddNewEvent />
+                                            : currentSelected === "All Events" ? <AllEvents />
+                                                : currentSelected === "Profile" ? <Profile />
+                                                    : currentSelected === "Settings" ? <Settings />
+                                                        : ""
+                                }
                             </Paper>
                         </Grid>
                     </Grid>
