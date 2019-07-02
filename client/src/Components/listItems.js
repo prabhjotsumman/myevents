@@ -13,45 +13,68 @@ import List from "@material-ui/core/List";
 // import { makeStyles } from "@material-ui/core/styles";
 
 export default class MainListItems extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       selectedIndex: 0,
       highlighted: false
     };
   }
-  handleListItemClick = (event, index) => {
-    console.log(index);
+  handleListItemClick = (event, index, drawerItem) => {
+    // console.log(index, drawerItem);
     this.setState({ selectedIndex: index });
+    this.props.loadSelectedComponent(drawerItem);
   };
   render() {
     return (
       <List>
-        <ListItem button selected={this.state.selectedIndex === 0} onClick={event => this.handleListItemClick(event, 0)}>
+        <ListItem
+          button
+          selected={this.state.selectedIndex === 0}
+          onClick={event => this.handleListItemClick(event, 0, "Dashboard")}
+          //   loadSelectedComponent={() => "Dashboard"}
+        >
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button selected={this.state.selectedIndex === 1} onClick={event => this.handleListItemClick(event, 1)}>
+        <ListItem
+          button
+          selected={this.state.selectedIndex === 1}
+          onClick={event => this.handleListItemClick(event, 1, "Add New Event")}
+          //   loadSelectedComponent={() => "Add New Event"}
+        >
           <ListItemIcon>
             <ShoppingCartIcon />
           </ListItemIcon>
           <ListItemText primary="Add New Event" />
         </ListItem>
-        <ListItem button selected={this.state.selectedIndex === 2} onClick={event => this.handleListItemClick(event, 2)}>
+        <ListItem
+          button
+          selected={this.state.selectedIndex === 2}
+          onClick={event => this.handleListItemClick(event, 2, "All Events")}
+        >
           <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
           <ListItemText primary="All Events" />
         </ListItem>
-        <ListItem button selected={this.state.selectedIndex === 3} onClick={event => this.handleListItemClick(event, 3)}>
+        <ListItem
+          button
+          selected={this.state.selectedIndex === 3}
+          onClick={event => this.handleListItemClick(event, 3, "Profile")}
+        >
           <ListItemIcon>
             <BarChartIcon />
           </ListItemIcon>
           <ListItemText primary="Profile" />
         </ListItem>
-        <ListItem button selected={this.state.selectedIndex === 4} onClick={event => this.handleListItemClick(event, 4)}>
+        <ListItem
+          button
+          selected={this.state.selectedIndex === 4}
+          onClick={event => this.handleListItemClick(event, 4, "Settings")}
+        >
           <ListItemIcon>
             <LayersIcon />
           </ListItemIcon>

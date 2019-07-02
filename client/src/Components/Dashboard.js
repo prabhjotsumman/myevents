@@ -107,13 +107,18 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
+    const [currentSelected, setCurrentSelected] = React.useState(false);
     const handleDrawerOpen = () => {
         setOpen(true);
     };
     const handleDrawerClose = () => {
         setOpen(false);
     };
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const selectedComponent = (name) =>{
+        console.log(name);
+        setCurrentSelected(true);
+    }
+    // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
         <div className={classes.root}>
@@ -152,14 +157,12 @@ export default function Dashboard() {
                     </IconButton>
                 </div>
                 <Divider />
-                {/* <List>{MainListItems}</List> */}
-                <MainListItems/>
+                <MainListItems loadSelectedComponent={selectedComponent}/>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
-                        {/* Chart */}
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper>
                                 <AddNewEvent />
