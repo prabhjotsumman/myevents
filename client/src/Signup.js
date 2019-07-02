@@ -5,26 +5,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+// import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Link as RLink} from 'react-router-dom';
-
-function MadeWithLove() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Built with love by the '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Material-UI
-      </Link>
-            {' team.'}
-        </Typography>
-    );
-}
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -65,6 +53,12 @@ function handleSubmit(e){
             'Content-Type': 'application/json',
         },
         body:json
+    })
+    .then(res => res.json())
+    .then( json => {
+        if(json.success){
+            //TODO save state and redirect to dashboard
+        }
     })
 }
 
@@ -159,9 +153,6 @@ export default function SignUp(){
                     </Grid>
                 </form>
             </div>
-            <Box mt={5}>
-                <MadeWithLove />
-            </Box>
         </Container>
     );
 }

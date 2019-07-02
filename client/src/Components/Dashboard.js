@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
+// import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,7 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems } from './listItems';
+import MainListItems from './listItems';
 import AddNewEvent from './AddNewEvent';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
@@ -152,7 +152,8 @@ export default function Dashboard() {
                     </IconButton>
                 </div>
                 <Divider />
-                <List>{mainListItems}</List>
+                {/* <List>{MainListItems}</List> */}
+                <MainListItems/>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
@@ -162,18 +163,6 @@ export default function Dashboard() {
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper>
                                 <AddNewEvent />
-                            </Paper>
-                        </Grid>
-                        {/* Recent Deposits */}
-                        <Grid item xs={12} md={4} lg={3}>
-                            <Paper className={fixedHeightPaper}>
-                                {/* <Deposits /> */}
-                            </Paper>
-                        </Grid>
-                        {/* Recent Orders */}
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper}>
-                                {/* <Orders /> */}
                             </Paper>
                         </Grid>
                     </Grid>

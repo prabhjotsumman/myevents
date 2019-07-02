@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SignInSide from './Components/SignInSide';
-import Dashboard from './Components/Dashboard';
 import { Redirect } from 'react-router-dom';
 
 export default class SignIn extends Component {
