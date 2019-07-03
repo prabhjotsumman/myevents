@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import EventCard from "../EventCard";
 import Grid from "@material-ui/core/Grid";
 // import Paper from "@material-ui/core/Paper";
+import {Link as RLink} from 'react-router-dom';
 
 export default class AllEvents extends Component {
   constructor() {
@@ -36,7 +37,9 @@ export default class AllEvents extends Component {
         item
       >
         <Grid spacing={2} item>
+        <RLink to="/signin" style={{ textDecoration: 'none' }}>
           <EventCard />
+        </RLink>
         </Grid>
         <Grid spacing={2} item>
           <EventCard />
