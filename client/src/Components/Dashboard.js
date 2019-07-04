@@ -121,7 +121,7 @@ export default function Dashboard() {
     console.log(name);
     setCurrentSelected(name);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
