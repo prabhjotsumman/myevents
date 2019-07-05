@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SignInSide from './Components/SignInSide';
+import SignInSide from './SignInSide';
 import { Redirect } from 'react-router-dom';
 
 export default class SignIn extends Component {
