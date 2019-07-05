@@ -14,9 +14,9 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import AllEvents from '../Dashboard/AllEvents';
 import PrimarySearchAppBar from './PrimarySearchAppBar';
-import { Box } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 
-const drawerWidth = 240;
+const drawerWidth = 150;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -46,27 +46,17 @@ export default function PermanentDrawerLeft() {
 
   return (
     <div className={classes.root}>
-      <Drawer
+      {/* <Drawer
         className={classes.drawer}
         variant="permanent"
         classes={{
           paper: classes.drawerPaper,
         }}
         anchor="left"
-      >
-        {/* <div className={classes.toolbar} /> */}
-        {/* <Box mt={8} style={{color:'none'}}></Box>
-       */}
-        <Box
-          // color="primary.main"
-          bgcolor="background.paper"
-          fontFamily="h6.fontFamily"
-          fontSize={{ xs: 'h6.fontSize', sm: 'h4.fontSize', md: 'h3.fontSize' }}
-          // p={{ xs: 2, sm: 3, md: 4 }}
-        >
-          <img src="https://picsum.photos/195"></img>
-        </Box>
-        <Divider />
+      > */}
+        {/* <Divider /> */}
+      <Grid item xs={2} md={2} >
+        <div className={classes.toolbar} />
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
@@ -84,7 +74,8 @@ export default function PermanentDrawerLeft() {
             </ListItem>
           ))}
         </List>
-      </Drawer>
+        </Grid>
+      {/* </Drawer> */}
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <AllEvents/>

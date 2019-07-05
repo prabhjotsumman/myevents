@@ -165,7 +165,7 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="static" style={{ background: '#2E3B55' }}>
+            <AppBar position="fixed" style={{ background: '#2E3B55' }}>
                 <Toolbar>
                     <IconButton
                         edge="start"
@@ -173,7 +173,7 @@ export default function PrimarySearchAppBar() {
                         color="inherit"
                         aria-label="Open drawer"
                     >
-                        <MenuIcon />
+                        {/* <MenuIcon /> */}
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
                         MyEvents.io
