@@ -1,11 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -13,8 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import AllEvents from '../Dashboard/AllEvents';
-import PrimarySearchAppBar from './PrimarySearchAppBar';
-import { Box, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 const drawerWidth = 150;
 
@@ -46,15 +40,6 @@ export default function PermanentDrawerLeft() {
 
   return (
     <div className={classes.root}>
-      {/* <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        anchor="left"
-      > */}
-        {/* <Divider /> */}
       <Grid item xs={2} md={2} >
         <div className={classes.toolbar} />
         <List>
@@ -75,7 +60,6 @@ export default function PermanentDrawerLeft() {
           ))}
         </List>
         </Grid>
-      {/* </Drawer> */}
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <AllEvents/>

@@ -48,11 +48,6 @@ export default class AllEvents extends Component {
         spacing={3}
         item
       >
-        {/* <Grid spacing={2} item>
-          <RLink to="/signin" style={{ textDecoration: "none" }}>
-            <EventCard />
-          </RLink>
-        </Grid> */}
         {this.state.Events
           ? this.state.Events.map(eventdata => (
               <Grid item key={eventdata._id}>
