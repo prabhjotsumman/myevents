@@ -15,6 +15,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Link as RLink } from 'react-router-dom';
+// import LeftNav from './LeftNavigation';
+
+// import AllEvents from '../Dashboard/AllEvents';
 
 const useStyles = makeStyles(theme => ({
     grow: {
