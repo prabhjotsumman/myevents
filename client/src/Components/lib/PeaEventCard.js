@@ -6,10 +6,13 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import PeaIcon from "./PeaIcon";
-import PeaAvatar from "./PeaAvatar";
+// import PeaAvatar from "./PeaAvatar";
+import Icon from '@material-ui/core/Icon';
 import Button from "@material-ui/core/Button";
+import { Divider, Box } from "@material-ui/core";
+
 // import AmountMoneyIcon from "@material-ui/icons/AttachMoney";
-const PeaEventCard = ({ image, name, range, time, images, category,venue }) => (
+const PeaEventCard = ({ image, name, range, time, images, category, venue }) => (
   <Card className={"PeaEventCard-root"}>
     <CardMedia
       className={"MuiCardMedia-root"}
@@ -24,42 +27,35 @@ const PeaEventCard = ({ image, name, range, time, images, category,venue }) => (
       )}
     </CardMedia>
     <CardContent className={"MuiCardContent-root"}>
-      <Typography className={"MuiTypography--heading"}>{name}</Typography>
-      <Grid container alignItems={"center"} spacing={1}>
+      <Grid container spacing={1} alignContent={'center'}>
         <Grid item>
-          <PeaIcon
-            size={"small"}
-            color={"secondary"}
-            icon={"fas fa-calendar-alt"}
-          />
+          <Typography className={"MuiTypography--heading alignCenter"} align="center">{name}</Typography>
+        </Grid>
+      </Grid>
+      <Box m={1}><Divider /></Box>
+      <Grid container spacing={1}>
+        <Grid item>
+          <Icon color={"primary"}>event</Icon>
         </Grid>
         <Grid item>
           <Typography color={"textSecondary"} variant={"caption"} gutterBottom>
             {time}
           </Typography>
         </Grid>
-        </Grid>
+      </Grid>
       <Grid container spacing={1}>
-      <Grid item>
-          <PeaIcon
-            size={"small"}
-            color={"secondary"}
-            icon={"fas fa-calendar-alt"}
-          />
+        <Grid item>
+          <Icon color={"secondary"}>attach_money</Icon>
         </Grid>
         <Grid item>
           <Typography color={"textSecondary"} variant={"caption"} gutterBottom>
             {category}
           </Typography>
         </Grid>
-        </Grid>
-        <Grid container spacing={1} >
+      </Grid>
+      <Grid container spacing={1} >
         <Grid item>
-          <PeaIcon
-            size={"small"}
-            color={"secondary"}
-            icon={"fas fa-calendar-alt"}
-          />
+          <Icon color={"error"}>location_on</Icon>
         </Grid>
         <Grid item>
           <Typography color={"textSecondary"} variant={"caption"} gutterBottom>
@@ -67,19 +63,7 @@ const PeaEventCard = ({ image, name, range, time, images, category,venue }) => (
           </Typography>
         </Grid>
       </Grid>
-      {/* <Grid container alignItems={"center"} spacing={1}>
-        <Grid item>
-          <PeaIcon size={"small"} color={"secondary"} icon={"fas fa-users"} />
-        </Grid>
-        <Grid item>
-          <PeaAvatar.Group
-            images={images}
-            more={3}
-            avatarProps={{ size: "small" }}
-          />
-        </Grid>
-      </Grid> */}
-      <Grid container alignItems={"center"} spacing={1}>
+      <Grid container alignItems={"center"} >
         <Grid item>
           <Button size="small" variant="contained" color="primary">
             Buy

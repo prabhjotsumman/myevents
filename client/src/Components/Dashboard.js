@@ -118,7 +118,7 @@ export default function Dashboard() {
     setOpen(false);
   };
   const selectedComponent = name => {
-    console.log(name);
+    // console.log(name);
     setCurrentSelected(name);
   };
   // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -185,8 +185,7 @@ export default function Dashboard() {
                 <AddNewEvent />
               </Paper>
             ) : currentSelected === "All Events" ? (
-              <Grid item spacing={2}>
-                {/* <Chart /> */}
+              <Grid item>
                 <AllEvents />
               </Grid>
             ) : currentSelected === "Profile" ? (
