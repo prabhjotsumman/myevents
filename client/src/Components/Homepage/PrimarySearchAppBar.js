@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({position}) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -162,7 +162,7 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="static" style={{ background: '#2E3B55' }}>
+            <AppBar position={position==="fixed" ? "fixed": "static"} style={{ background: '#2E3B55' }}>
                 <Toolbar>
                     <IconButton
                         edge="start"

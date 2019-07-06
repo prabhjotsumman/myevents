@@ -12,7 +12,7 @@ import NextWeekIcon from '@material-ui/icons/NextWeek';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import AllEvents from '../Dashboard/AllEvents';
-import { Grid, Typography, Button, ButtonGroup } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
 // import RangeSlider from './RangeSlider';
 
 const drawerWidth = 150;
