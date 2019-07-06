@@ -13,13 +13,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RLink } from 'react-router-dom';
+import './logo.PNG';
 
 const useStyles = makeStyles(theme => ({
     root: {
         height: '100vh',
     },
     image: {
-        backgroundImage: 'url(https://source.unsplash.com/random)',
+        backgroundImage: 'url(https://serving.photos.photobox.com/53715357baa78478ecc46e4f4dcf61b9a74a71cf0995377c6d342b5285d4f20c4ef7f582.jpg)',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
