@@ -20,6 +20,7 @@ import AddNewEvent from "./Dashboard/AddNewEvent";
 import AllEvents from "./Dashboard/AllEvents";
 import Profile from "./Dashboard/Profile";
 import Settings from "./Dashboard/Settings";
+import Footer from './Footer';
 
 const drawerWidth = 240;
 
@@ -119,6 +120,7 @@ export default function Dashboard() {
   // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
+    <>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -194,5 +196,7 @@ export default function Dashboard() {
         </Container>
       </main>
     </div>
+      <Footer/>
+      </>
   );
 }

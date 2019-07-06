@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppBar from './Homepage/PrimarySearchAppBar';
 import { Grid, Typography, Button, Icon, Box } from '@material-ui/core';
 import Paper from './Paper';
+import Footer from './Footer';
 
 export default class EventPage extends Component {
     constructor(props) {
@@ -100,6 +101,7 @@ export default class EventPage extends Component {
                             }
                         </Grid>
                     </Grid>
+                    <Footer/>
                 </div>
             </>
         )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppBar from './Homepage/PrimarySearchAppBar';
 import LeftNav from './Homepage/LeftNavigation';
+import Footer from './Footer';
 
 class Homepage extends Component {
 
@@ -9,6 +10,7 @@ class Homepage extends Component {
             <div>
                 <AppBar />
                 <LeftNav />
+                <Footer/>
             </div>
         );
     };
