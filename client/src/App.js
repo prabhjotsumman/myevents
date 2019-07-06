@@ -3,6 +3,7 @@ import './App.css';
 import Signin from './Components/Signin';
 import Signup from './Components/Signup';
 import HomePage from './Components/HomePage';
+import EventPage from './Components/EventPage';
 
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Dashboard from './Components/Dashboard';
@@ -14,6 +15,7 @@ function App() {
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
       <Route path="/Dashboard" component={Dashboard} />
+      <Route path="/event/:eventID" component={EventPage} />
     </Router>
   );
 }

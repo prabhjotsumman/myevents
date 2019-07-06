@@ -24,8 +24,9 @@ export default class AllEvents extends Component {
       .then(res => res.json())
       .then(json => json.data)
       .then(eventsArray => {
-        // console.log(eventsArray);
+        console.log(eventsArray);
         this.setState({ Events: eventsArray });
+        localStorage.setItem('EventsArray',JSON.stringify(eventsArray));
       });
   }
   render() {
@@ -64,6 +65,7 @@ export default class AllEvents extends Component {
                   }
                   category={eventdata.eventCategory}
                   venue={eventdata.eventVenue}
+                  id={eventdata._id}
                   // endDay={days[(new Date(eventdata.eventEndDate)).getDay()]}
                   // images={[AVATAR, AVATAR, AVATAR, AVATAR, AVATAR]}
                 />

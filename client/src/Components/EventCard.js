@@ -34,6 +34,7 @@ const Preview = props => (
     time={props.time}
     category={props.category}
     venue={props.venue}
+    id={props.id}
     // images={[AVATAR, AVATAR, AVATAR, AVATAR, AVATAR]}
   />
 );

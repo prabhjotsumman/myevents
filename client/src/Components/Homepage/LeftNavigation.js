@@ -5,8 +5,8 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+// import InboxIcon from '@material-ui/icons/MoveToInbox';
+// import MailIcon from '@material-ui/icons/Mail';
 import TodayIcon from '@material-ui/icons/Today';
 import NextWeekIcon from '@material-ui/icons/NextWeek';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
@@ -47,7 +47,7 @@ export default function PermanentDrawerLeft() {
   return (
     <div className={classes.root}>
       <Grid item xs={2} md={2} >
-        <div className={classes.toolbar} />
+        {/* <div className={classes.toolbar} /> */}
         <br />
         <Grid item>
           <Typography align="center" color="primary">Filters</Typography>
@@ -90,7 +90,7 @@ export default function PermanentDrawerLeft() {
         </div>
       </Grid>
       <main className={classes.content}>
-        <div className={classes.toolbar} />
+        {/* <div className={classes.toolbar} /> */}
         <AllEvents />
       </main>
     </div>

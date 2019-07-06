@@ -10,9 +10,10 @@ import PeaIcon from "./PeaIcon";
 import Icon from '@material-ui/core/Icon';
 import Button from "@material-ui/core/Button";
 import { Divider, Box } from "@material-ui/core";
+import {Link as RLink} from 'react-router-dom';
 
 // import AmountMoneyIcon from "@material-ui/icons/AttachMoney";
-const PeaEventCard = ({ image, name, range, time, images, category, venue }) => (
+const PeaEventCard = ({ image, name, range, time, images, category, venue, id }) => (
   <Card className={"PeaEventCard-root"}>
     <CardMedia
       className={"MuiCardMedia-root"}
@@ -65,9 +66,11 @@ const PeaEventCard = ({ image, name, range, time, images, category, venue }) => 
       </Grid>
       <Grid container alignItems={"center"} >
         <Grid item>
-          <Button size="small" variant="contained" color="primary">
+          <RLink to={"/event/"+id} style={{textDecoration:'none'}}>
+          <Button size="small" variant="contained" color="primary" >
             Buy
           </Button>
+          </RLink>
           <Button size="small" color="primary">
             More Info
           </Button>
