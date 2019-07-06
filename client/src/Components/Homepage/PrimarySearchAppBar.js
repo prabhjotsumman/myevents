@@ -172,9 +172,11 @@ export default function PrimarySearchAppBar({position}) {
                     >
                         {/* <MenuIcon /> */}
                     </IconButton>
+                    <RLink to="/" style={{ textDecoration: 'none', color: 'white' }}>
                     <Typography className={classes.title} variant="h6" noWrap>
                         MyEvents.io
-          </Typography>
+                    </Typography>
+                    </RLink>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
