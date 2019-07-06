@@ -87,7 +87,9 @@ export default class EventPage extends Component {
                                             <Grid item xs={7} sm={7} md={7}>
                                                 <Paper>
                                                     <Typography gutterBottom variant="subtitle2">Description </Typography>
-                                                    <Typography gutterBottom variant="body1">{this.state.eventInfo[0].eventDescription}</Typography>
+                                                    <Typography gutterBottom variant="body1">
+                                                        {this.state.eventInfo[0].eventDescription}
+                                                    </Typography>
                                                 </Paper>
                                             </Grid>
                                             <Grid item xs={3} sm={3} md={3}>
@@ -101,7 +103,7 @@ export default class EventPage extends Component {
                             }
                         </Grid>
                     </Grid>
-                    <Footer/>
+                    <Footer />
                 </div>
             </>
         )

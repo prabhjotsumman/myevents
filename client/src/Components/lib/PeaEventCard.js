@@ -20,12 +20,12 @@ const PeaEventCard = ({ image, name, range, time, images, category, venue, id })
       image={image}
       style={{ height: "150px" }}
     >
-      {range && (
+      {/* {range && (
         <div className={"MuiCardTag-root"}>
           <PeaIcon size={"small"} color={"white"} icon={"location_on"} />{" "}
           {range}
         </div>
-      )}
+      )} */}
     </CardMedia>
     <CardContent className={"MuiCardContent-root"}>
       <Grid container spacing={1} alignContent={'center'}>
