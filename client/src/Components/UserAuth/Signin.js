@@ -13,6 +13,13 @@ export default class SignIn extends Component {
             userProfile: {}
         }
     }
+    componentDidMount(){
+        let currentUser = JSON.parse(localStorage.getItem('currentActiveUserProfile'));
+        if (currentUser) {
+            const loggedin = currentUser.loggedin;
+            this.setState({ loggedin: loggedin });
+        }
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -42,9 +49,9 @@ export default class SignIn extends Component {
                     console.log(data.error);
                 }
                 if (data.success) {
-                    this.setState({ success: data.success, status: data.status, loggedin: data.loggedin, userProfile: data.userProfile });
                     data.userProfile.loggedin = true;
                     localStorage.setItem('currentActiveUserProfile', JSON.stringify(data.userProfile));
+                    this.setState({ success: data.success, status: data.status, loggedin: data.loggedin, userProfile: data.userProfile });
                 }
             }
             );
