@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import PeaIcon from "./PeaIcon";
+// import PeaIcon from "./PeaIcon";
 // import PeaAvatar from "./PeaAvatar";
 import Icon from '@material-ui/core/Icon';
 import Button from "@material-ui/core/Button";

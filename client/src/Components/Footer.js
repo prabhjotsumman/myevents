@@ -1,21 +1,21 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
+// import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 
-function MadeWithLove() {
-    return (
-        <Typography variant="body2" color="textSecondary">
-            {'Built with love by '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Prabhjot Summan
-      </Link>
-            {''}
-        </Typography>
-    );
-}
+// function MadeWithLove() {
+//     return (
+//         <Typography variant="body2" color="textSecondary">
+//             {'Built with love by '}
+//             <Link color="inherit" href="https://material-ui.com/">
+//                 Prabhjot Summan
+//       </Link>
+//             {''}
+//         </Typography>
+//     );
+// }
 
 const useStyles = makeStyles(theme => ({
     root: {

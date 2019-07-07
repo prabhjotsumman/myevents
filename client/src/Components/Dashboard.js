@@ -16,11 +16,13 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MainListItems from "./listItems";
+import UserDashboard from './Dashboard/UserDashboard';
 import AddNewEvent from "./Dashboard/AddNewEvent";
 import AllEvents from "./Dashboard/AllEvents";
 import Profile from "./Dashboard/Profile";
 import Settings from "./Dashboard/Settings";
 import Footer from './Footer';
+import { Link as RLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -106,7 +108,7 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const [currentSelected, setCurrentSelected] = React.useState("");
+  const [currentSelected, setCurrentSelected] = React.useState("Dashboard");
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -118,85 +120,92 @@ export default function Dashboard() {
     setCurrentSelected(name);
   };
   // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const handleSignOut = () => {
+    let signOut = JSON.stringify({ loggedin: false });
+    localStorage.setItem('currentActiveUserProfile', signOut);
+  }
 
   return (
     <>
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="absolute"
-        className={clsx(classes.appBar, open && classes.appBarShift)}
-      >
-        <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="Open drawer"
-            onClick={handleDrawerOpen}
-            className={clsx(
-              classes.menuButton,
-              open && classes.menuButtonHidden
-            )}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.title}
-          >
-            Dashboard
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar
+          position="absolute"
+          className={clsx(classes.appBar, open && classes.appBarShift)}
+        >
+          <Toolbar className={classes.toolbar}>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={handleDrawerOpen}
+              className={clsx(
+                classes.menuButton,
+                open && classes.menuButtonHidden
+              )}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.title}
+            >
+              Dashboard
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        classes={{
-          paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)
-        }}
-        open={open}
-      >
-        <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <Divider />
-        <MainListItems loadSelectedComponent={selectedComponent} />
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {currentSelected === "Dashboard" ? (
-              <h1>Dashboard</h1>
-            ) : currentSelected === "Add New Event" ? (
-              <Paper>
-                <AddNewEvent />
-              </Paper>
-            ) : currentSelected === "All Events" ? (
-              <Grid item>
-                <AllEvents />
-              </Grid>
-            ) : currentSelected === "Profile" ? (
-              <Profile />
-            ) : currentSelected === "Settings" ? (
-              <Settings />
-            ) : (
-              ""
-            )}
-          </Grid>
-        </Container>
-      </main>
-    </div>
-      <Footer/>
-      </>
+            <IconButton color="inherit">
+              <Badge badgeContent={4} color="secondary">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            <RLink to="/signin" style={{ textDecoration: 'none', color: 'white' }} onClick={handleSignOut}>
+              <Typography>Logout</Typography>
+            </RLink>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose)
+          }}
+          open={open}
+        >
+          <div className={classes.toolbarIcon}>
+            <IconButton onClick={handleDrawerClose}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider />
+          <MainListItems loadSelectedComponent={selectedComponent} />
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.appBarSpacer} />
+          <Container maxWidth="lg" className={classes.container}>
+            <Grid container spacing={3}>
+              {currentSelected === "Dashboard" ? (
+                <UserDashboard />
+              ) : currentSelected === "Add New Event" ? (
+                <Paper>
+                  <AddNewEvent />
+                </Paper>
+              ) : currentSelected === "All Events" ? (
+                <Grid item>
+                  <AllEvents />
+                </Grid>
+              ) : currentSelected === "Profile" ? (
+                <Profile />
+              ) : currentSelected === "Settings" ? (
+                <Settings />
+              ) : (
+                          ""
+                        )}
+            </Grid>
+          </Container>
+        </main>
+      </div>
+      <Footer />
+    </>
   );
 }

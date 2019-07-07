@@ -43,6 +43,7 @@ export default class SignIn extends Component {
                 }
                 if (data.success) {
                     this.setState({ success: data.success, status: data.status, loggedin: data.loggedin, userProfile: data.userProfile });
+                    data.userProfile.loggedin = true;
                     localStorage.setItem('currentActiveUserProfile', JSON.stringify(data.userProfile));
                 }
             }
