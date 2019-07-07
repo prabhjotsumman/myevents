@@ -30,9 +30,15 @@ router.post('/getUser', (req, res) => {
     const { email, password } = req.body;
     console.log(email, password);
     User.find({ email }, (err, data) => {
-        if (err) return res.json({ success: false, error: err });
-        if (data[0].password === password) {
-            return res.json({ success: true, status: "authenticated", loggedin: true });
+        // console.log(err,data);
+        if (err === null && data.length === 0)
+            return res.json({ success: false, error: "Email is not registered" });
+        if (data && data[0].password === password) {
+            data = data[0];
+            data.password = undefined;
+            return res.json({ success: true, status: "authenticated", loggedin: true, userProfile: data });
+        } else {
+            return res.json({ success: false, loggedin: false, error: "Password is incorrect." });
         }
     });
 });
@@ -74,9 +80,9 @@ router.post('/putUser', (req, res) => {
 router.post('/addNewEvent', (req, res) => {
     let data = new Event();
     console.log(req.body);
-    data = Object.assign(data,req.body);
+    data = Object.assign(data, req.body);
     // data = {data, ...req.body};
-    console.log("Daa ",data);
+    console.log("Daa ", data);
     data.save((err) => {
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true });

@@ -9,7 +9,8 @@ export default class SignIn extends Component {
             success: false,
             status: null,
             error: null,
-            loggedin: false
+            loggedin: false,
+            userProfile: {}
         }
     }
     handleSubmit = (e) => {
@@ -29,10 +30,21 @@ export default class SignIn extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                if (data.error) {
+                console.log(data);
+                if (!data.success) {
+                    //TODO: Email is incorrect, try again, no user found
                     this.setState({ error: data.error })
+                    // console.log(data.error);
                 }
-                this.setState({ success: data.success, status: data.status, loggedin: data.loggedin })
+                if (data.error) {
+                    //TODO:Password is incorrect
+                    this.setState({ error: data.error })
+                    console.log(data.error);
+                }
+                if (data.success) {
+                    this.setState({ success: data.success, status: data.status, loggedin: data.loggedin, userProfile: data.userProfile });
+                    localStorage.setItem('currentActiveUserProfile', JSON.stringify(data.userProfile));
+                }
             }
             );
     }

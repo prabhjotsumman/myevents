@@ -31,7 +31,7 @@ export default class SignIn extends Component {
             .then(json => {
                 console.log(json);
                 if (json.success) {
-                    //TODO save state and redirect to dashboard
+                    //TODO Success snackbar and redirect to signin Page
                     this.setState({ success: json.success });
                 }
             })
@@ -40,7 +40,7 @@ export default class SignIn extends Component {
     render() {
         return (
             (this.state.success) ?
-                <Redirect to="/Dashboard" /> :
+                <Redirect to="/signin" /> :
                 <SignUpSide onRegister={this.handleSubmit} />
         )
     }
