@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Signin from './Components/Signin';
-import Signup from './Components/Signup';
+import Signin from './Components/UserAuth/Signin';
+import Signup from './Components/UserAuth/Signup';
 import HomePage from './Components/HomePage';
 import EventPage from './Components/EventPage';
 

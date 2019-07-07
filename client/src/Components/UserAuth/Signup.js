@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Link as RLink} from 'react-router-dom';
+import Snackbar from '../Snackbar';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -56,6 +57,7 @@ function handleSubmit(e){
     })
     .then(res => res.json())
     .then( json => {
+        console.log(json);
         if(json.success){
             //TODO save state and redirect to dashboard
         }
