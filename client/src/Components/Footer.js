@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     },
     main: {
         marginTop: theme.spacing(8),
-        marginBottom: theme.spacing(2),
+        marginBottom: theme.spacing(8),
     },
     footer: {
         padding: theme.spacing(2),
@@ -45,7 +45,7 @@ export default function StickyFooter() {
             </Container> */}
             <footer className={classes.footer}>
                 <Container maxWidth="sm">
-                    <Typography variant="body1">Site is created by @prabhnith</Typography>
+                    <Typography variant="body1">Site is developed by @prabhnith</Typography>
                     {/* <MadeWithLove /> */}
                 </Container>
             </footer>

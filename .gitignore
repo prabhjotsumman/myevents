@@ -1,6 +1,7 @@
 db/
 db
 ./db
+db/*
 # Logs
 logs
 *.log
