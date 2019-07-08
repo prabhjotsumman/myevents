@@ -49,9 +49,14 @@ const useStyles = makeStyles(theme => ({
 function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    var obj = {};
+    let currentUser = JSON.parse(localStorage.getItem('currentActiveUserProfile'));
+    let obj = {};
+    if(currentUser){
+        let organisationName = currentUser.organisationName;
+        obj.eventOrganisation = organisationName;
+    }
     formData.forEach((value, key) => { obj[key] = value });
-    var json = JSON.stringify(obj);
+    let json = JSON.stringify(obj);
     console.log(obj);
     fetch('http://localhost:3001/addNewEvent', {
         method: 'POST',

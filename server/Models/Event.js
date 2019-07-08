@@ -14,6 +14,7 @@ const EventSchema = Schema({
     eventAmount: { type: String, required: true },
     eventVenue: { type: String, required: true },
     eventStatusCode: { type: String, required: false, default: "Registered" },
+    eventOrganisation: { type: String, required: true },
     // organizationID: { type: String, required: true },
     // eventPoster: { type: String, required: true },
     // eventBanner: { type: String, required: true },

@@ -52,7 +52,7 @@ export default class AllEvents extends Component {
         {this.state.Events
           ?
           this.state.Events
-          .splice(0,this.props.count)
+          // .splice(0,this.props.count)
             .map(eventdata => (
               <Grid item key={eventdata._id}>
                 <EventCard
