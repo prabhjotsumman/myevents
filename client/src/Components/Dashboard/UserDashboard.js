@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import PeaUserCard from '../lib/PeaUserCard';
 import { Grid, Typography, Divider } from '@material-ui/core';
-import Paper from '../Paper';
+// import Paper from '../Paper';
 import AllEvents from './AllEvents';
 
 export default class UserDashboard extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             Profile: { name: '', organisationName: '' },
-            eventsArray: []
+            eventsArray: [],
         }
     }
     componentDidMount() {
         let currentUser = JSON.parse(localStorage.getItem('currentActiveUserProfile'));
-        this.setState({ Profile: currentUser });
-        console.log(currentUser);
-
         let eventsArray = JSON.parse(localStorage.getItem('eventsArray'));
+        
+        this.setState({ Profile: currentUser });
         this.setState({ eventsArray });
+        console.log("In User Dashboard : ",this.props.company)
     }
 
     render() {
@@ -35,13 +35,13 @@ export default class UserDashboard extends Component {
                         name={this.state.Profile.name}
                         tag={'@' + this.state.Profile.name}
                         location={'Houston'}
-                        bio={'Event Organiser at ' + this.state.Profile.organisationName}
+                        bio={'Event Organiser at ' + this.props.company}
                     />
                 </Grid>
-                <Divider/>
+                <Divider />
                 <Grid item>
-                        <Typography variant="h5" gutterBottom>Upcoming Events</Typography>
-                        <AllEvents count={4} />
+                    <Typography variant="h5" gutterBottom>Upcoming Events</Typography>
+                    <AllEvents count={4} company={this.props.company} />
                 </Grid>
             </Grid>
 

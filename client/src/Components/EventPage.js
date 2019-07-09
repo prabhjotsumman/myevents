@@ -88,6 +88,7 @@ export default class EventPage extends Component {
                                         <Grid item xs sm md lg>
                                             <Paper>
                                                 <Typography gutterBottom variant="subtitle2">Venue </Typography>
+                                                <Typography gutterBottom variant="body1">{this.state.eventInfo[0].eventVenue}</Typography>
                                             </Paper>
                                         </Grid>
                                     </Grid>

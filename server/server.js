@@ -89,6 +89,13 @@ router.post('/addNewEvent', (req, res) => {
     });
 });
 
+router.get('/getAllEvents/:company', (req, res) => {
+    Event.find({ eventOrganisation: { $regex: new RegExp(req.params.company, "i") } }, (err, data) => {
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ success: true, data });
+    });
+});
+
 router.get('/getAllEvents', (req, res) => {
     Event.find((err, data) => {
         if (err) return res.json({ success: false, error: err });

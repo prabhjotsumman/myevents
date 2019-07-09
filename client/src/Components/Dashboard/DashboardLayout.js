@@ -105,10 +105,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Dashboard() {
+export default function DashboardLayout(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [currentSelected, setCurrentSelected] = React.useState("Dashboard");
+  let currentUser = JSON.parse(localStorage.getItem('currentActiveUserProfile'));
+  const company= currentUser.organisationName;
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -185,14 +187,14 @@ export default function Dashboard() {
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={3}>
               {currentSelected === "Dashboard" ? (
-                <UserDashboard />
+                <UserDashboard company={company}/>
               ) : currentSelected === "Add New Event" ? (
                 <Paper>
                   <AddNewEvent />
                 </Paper>
               ) : currentSelected === "All Events" ? (
                 <Grid item>
-                  <AllEvents />
+                  <AllEvents company={company}/>
                 </Grid>
               ) : currentSelected === "Profile" ? (
                 <Profile />

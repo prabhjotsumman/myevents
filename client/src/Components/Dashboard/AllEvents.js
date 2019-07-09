@@ -14,7 +14,7 @@ export default class AllEvents extends Component {
     };
   }
   componentDidMount() {
-    fetch("http://localhost:3001/getAllEvents", {
+    fetch(`http://localhost:3001/getAllEvents/${this.props.company}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -26,7 +26,6 @@ export default class AllEvents extends Component {
       .then(eventsArray => {
         console.log(eventsArray);
         this.setState({ Events: eventsArray });
-        localStorage.setItem('EventsArray', JSON.stringify(eventsArray));
       });
   }
   render(props) {
@@ -52,7 +51,7 @@ export default class AllEvents extends Component {
         {this.state.Events
           ?
           this.state.Events
-          // .splice(0,this.props.count)
+            // .splice(0,this.props.count)
             .map(eventdata => (
               <Grid item key={eventdata._id}>
                 <EventCard
@@ -72,5 +71,6 @@ export default class AllEvents extends Component {
 }
 
 AllEvents.defaultProps = {
-  count: 10
+  count: 10,
+  company: ''
 };
