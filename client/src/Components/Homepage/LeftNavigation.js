@@ -43,7 +43,7 @@ export default function PermanentDrawerLeft() {
 
   return (
     // <div className={classes.root}>
-      <Grid item xs={2} md={2} lg={2} alignContent="stretch">
+      <Grid item xs={2} md={2} lg={2}>
         {/* <div className={classes.toolbar} /> */}
         <br />
         <Grid item>

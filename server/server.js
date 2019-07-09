@@ -100,6 +100,15 @@ router.get('/getAllEvents', (req, res) => {
     });
 });
 
+router.get('/getAllCompanies', (req, res) => {
+    Company.find((err, data) => {
+        if (err) return res.json({ success: false, error: err });
+        let companies = data.map(item => item.eventOrganisation);
+        console.log(companies);
+        return res.json({ success: true, data: companies });
+    });
+});
+
 // append /api for our http requests
 app.use('/', router);
 
