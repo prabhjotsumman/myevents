@@ -9,7 +9,7 @@ import TodayIcon from '@material-ui/icons/Today';
 import NextWeekIcon from '@material-ui/icons/NextWeek';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import AllEvents from '../Dashboard/AllEvents';
+// import AllEvents from '../Dashboard/AllEvents';
 import { Grid, Typography, Button } from '@material-ui/core';
 
 const drawerWidth = 150;
@@ -42,8 +42,8 @@ export default function PermanentDrawerLeft() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid item xs={2} md={2} >
+    // <div className={classes.root}>
+      <Grid item xs={2} md={2} lg={2} alignContent="stretch">
         {/* <div className={classes.toolbar} /> */}
         <br />
         <Grid item>
@@ -84,10 +84,5 @@ export default function PermanentDrawerLeft() {
         </Button>
         </div>
       </Grid>
-      <main className={classes.content}>
-        {/* <div className={classes.toolbar} /> */}
-        <AllEvents />
-      </main>
-    </div>
   );
 }

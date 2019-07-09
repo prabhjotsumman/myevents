@@ -43,7 +43,6 @@ export default class AllEvents extends Component {
         justify="flex-start"
         alignItems="flex-start"
         spacing={3}
-        item
       >
         {this.state.Events
           ?
