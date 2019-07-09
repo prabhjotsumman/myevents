@@ -25,10 +25,11 @@ export default class AllEvents extends Component {
       .then(json => json.data)
       .then(eventsArray => {
         console.log(eventsArray);
+        localStorage.setItem('EventsArray',JSON.stringify(eventsArray));
         this.setState({ Events: eventsArray });
       });
   }
-  render(props) {
+  render() {
     const days = [
       "Sun",
       "Mon",
@@ -51,7 +52,7 @@ export default class AllEvents extends Component {
         {this.state.Events
           ?
           this.state.Events
-            // .splice(0,this.props.count)
+            .splice(0,this.props.count)
             .map(eventdata => (
               <Grid item key={eventdata._id}>
                 <EventCard
@@ -71,6 +72,6 @@ export default class AllEvents extends Component {
 }
 
 AllEvents.defaultProps = {
-  count: 10,
+  count: 50,
   company: ''
 };
