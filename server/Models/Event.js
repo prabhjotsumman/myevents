@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const EventSchema = Schema({
-    // eventID: { type: String, required: true, unique: true },
-    
+    eventID: Schema.Types.ObjectId,
     eventName: { type: String, required: true },
     eventDescription: { type: String, required: true },
     eventCategory: { type: String, required: true },
@@ -14,7 +13,7 @@ const EventSchema = Schema({
     eventAmount: { type: String, required: true },
     eventVenue: { type: String, required: true },
     eventStatusCode: { type: String, required: false, default: "Registered" },
-    eventOrganisation: { type: String, required: true },
+    eventOrganisation: { type: String, required: true, lowercase: true },
     // organizationID: { type: String, required: true },
     // eventPoster: { type: String, required: true },
     // eventBanner: { type: String, required: true },

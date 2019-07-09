@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const User = require('./Models/User');
 const Event = require('./Models/Event');
+const Company = require('./Models/Company');
 const config = require("../config.json");
 const API_PORT = 3001;
 const app = express();
@@ -62,14 +63,6 @@ router.delete('/deleteUser', (req, res) => {
 router.post('/putUser', (req, res) => {
     let data = new User();
 
-    // const { name, email, organisationName, mobile, password } = req.body;
-    // console.log(name, email, organisationName, mobile, password);
-    // if ((!name) || !email) {
-    //     return res.json({
-    //         success: false,
-    //         error: 'INVALID INPUTS',
-    //     });
-    // }
     data = Object.assign(data, req.body);
     data.save((err) => {
         if (err) return res.json({ success: false, error: err });
@@ -79,13 +72,17 @@ router.post('/putUser', (req, res) => {
 
 router.post('/addNewEvent', (req, res) => {
     let data = new Event();
-    console.log(req.body);
     data = Object.assign(data, req.body);
-    // data = {data, ...req.body};
-    console.log("Daa ", data);
+    const eventOrganisation = req.body.eventOrganisation;
+    
     data.save((err) => {
         if (err) return res.json({ success: false, error: err });
-        return res.json({ success: true });
+        Company.updateOne({ eventOrganisation }, { $push: { events: data._id } }, { upsert: true },
+            (err, result) => {
+            if (err) return res.json({ success: false, error: err });
+            console.log(result)
+            return res.json({ success: true });
+        });
     });
 });
 
