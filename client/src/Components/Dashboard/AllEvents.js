@@ -21,7 +21,7 @@ export default class AllEvents extends Component {
       .then(json => json.data)
       .then(eventsArray => {
         console.log(eventsArray);
-        localStorage.setItem('EventsArray',JSON.stringify(eventsArray));
+        // localStorage.setItem('EventsArray',JSON.stringify(eventsArray));
         this.setState({ Events: eventsArray });
       });
   }

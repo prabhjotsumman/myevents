@@ -10,7 +10,25 @@ export default class DisplayAllCompanies extends Component {
             companies: []
         }
     }
+
+    fetchAllEvents() {
+        fetch(`http://localhost:3001/getAllEvents/`, {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then(res => res.json())
+            .then(json => json.data)
+            .then(eventsArray => {
+                // console.log(eventsArray);
+                localStorage.setItem('EventsArray', JSON.stringify(eventsArray));
+                this.setState({ Events: eventsArray });
+            });
+    }
     componentDidMount() {
+        this.fetchAllEvents();
         // let eventsArray = JSON.parse(localStorage.getItem('eventsArray'));
         fetch(`http://localhost:3001/getAllCompanies`, {
             method: "GET",
@@ -36,7 +54,7 @@ export default class DisplayAllCompanies extends Component {
                             <Grid item>
                                 <Title>{company}</Title>
                                 <AllEvents company={company} />
-                                <Divider/>
+                                <Divider />
                             </Grid>
                         )
                     )
