@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import EventCard from "../EventCard";
 import Grid from "@material-ui/core/Grid";
-// import Paper from "@material-ui/core/Paper";
-// import { Link as RLink } from "react-router-dom";
-// import { Typography } from "@material-ui/core";
-// import AmountMoneyIcon from '@material-ui/icons/AttachMoney';
 
 export default class AllEvents extends Component {
   constructor(props) {

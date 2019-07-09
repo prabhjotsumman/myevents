@@ -22,15 +22,4 @@ const EventSchema = Schema({
     created: { type: Date, default: () => new Date() }
 });
 
-// export the new Schema so we could modify it using Node.js
 module.exports = mongoose.model("Event", EventSchema);
-
-// eventAmount: "1000"
-// eventName: "XT Summit"
-// eventDescription: "showcase of new tech models"
-// eventCategory: "Summit"
-// eventStartDate: "2019-07-10"
-// eventStartTime: "10:30"
-// eventEndDate: "2019-07-10"
-// eventEndTime: "12:30"
-// eventVenue: "Den"

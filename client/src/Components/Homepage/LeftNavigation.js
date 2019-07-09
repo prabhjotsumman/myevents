@@ -5,15 +5,12 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import MailIcon from '@material-ui/icons/Mail';
 import TodayIcon from '@material-ui/icons/Today';
 import NextWeekIcon from '@material-ui/icons/NextWeek';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import AllEvents from '../Dashboard/AllEvents';
 import { Grid, Typography, Button } from '@material-ui/core';
-// import RangeSlider from './RangeSlider';
 
 const drawerWidth = 150;
 
@@ -71,11 +68,9 @@ export default function PermanentDrawerLeft() {
             <ListItemText primary={"Later"} />
           </ListItem>
         </List>
-        {/* <Divider /> */}
         <Grid item>
           <Typography align="center" color="primary" gutterBottom>Price Range</Typography>
         </Grid>
-        {/* <Divider /> */}
         
         <div style={{margin:'10px'}} spacing={1}>
           <Button variant="outlined" size="small" className={classes.margin}>

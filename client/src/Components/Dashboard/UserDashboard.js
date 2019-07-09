@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PeaUserCard from '../lib/PeaUserCard';
 import { Grid, Typography, Divider } from '@material-ui/core';
-// import Paper from '../Paper';
 import AllEvents from './AllEvents';
 
 export default class UserDashboard extends Component {
@@ -44,7 +43,6 @@ export default class UserDashboard extends Component {
                     <AllEvents count={4} company={this.props.company} />
                 </Grid>
             </Grid>
-
         )
     }
 }
