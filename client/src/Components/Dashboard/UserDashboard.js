@@ -17,7 +17,7 @@ export default class UserDashboard extends Component {
         
         this.setState({ Profile: currentUser });
         this.setState({ eventsArray });
-        console.log("In User Dashboard : ",this.props.company)
+        // console.log("In User Dashboard : ",this.props.company)
     }
 
     render() {

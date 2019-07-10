@@ -51,7 +51,7 @@ export default class DisplayAllCompanies extends Component {
                     (this.state.companies) &&
                     (
                         this.state.companies.map(company =>
-                            <Grid item>
+                            <Grid item key={company}>
                                 <Title>{company}</Title>
                                 <AllEvents company={company} />
                                 <Divider />

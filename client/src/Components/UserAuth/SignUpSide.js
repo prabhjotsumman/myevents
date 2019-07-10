@@ -8,7 +8,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {Link as RLink} from 'react-router-dom';
+import { Link as RLink } from 'react-router-dom';
+// import Snackbar from '../Snackbar';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -36,12 +37,31 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
-export default function SignUpSide(props){
+export default function SignUpSide(props) {
     const classes = useStyles();
+    // const [disableRegisterButton, setdisableRegisterButton] = React.useState(false);
+    // const [requiredValueFilled, setrequiredValueFilled] = React.useState(false);
+    // const [formError, setformError] = React.useState(false);
 
+    // const disableButton = (e) => {
+    //     setformError(true);
+    //     e.preventDefault();
+    //     setdisableRegisterButton(true);
+    //     const formData = new FormData(e.target);
+    //     var obj = {};
+    //     formData.forEach((value, key) => {
+    //         if (!value)
+    //             setrequiredValueFilled(false);
+    //         obj[key] = value;
+    //     });
+    //     if (!requiredValueFilled) {
+    //         setformError(true);
+    //     }
+    //     props.onRegister(e);
+    // }
     return (
         <Container component="main" maxWidth="xs">
+
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
@@ -50,6 +70,10 @@ export default function SignUpSide(props){
                 <Typography component="h1" variant="h5">
                     Sign up
         </Typography>
+                {/* {(formError) &&
+                    (
+                        <Snackbar variant="error" open={true} message="Form fields are required" />
+                    )} */}
                 <form className={classes.form} noValidate onSubmit={props.onRegister}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -116,6 +140,8 @@ export default function SignUpSide(props){
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                    // disabled={disableRegisterButton}
+                    // onClick={disableButton}
                     >
                         Register
           </Button>

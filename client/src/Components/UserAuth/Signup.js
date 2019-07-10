@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import SignUpSide from './SignUpSide';
 import { Redirect } from 'react-router-dom';
+// import Snackbar from '../Snackbar';
 
-export default class SignIn extends Component {
+export default class SignUp extends Component {
     constructor() {
         super();
         this.state = {
             success: false,
             status: null,
             error: null,
-            loggedin: false
+            loggedin: false,
+            showSnackbar: ""
         }
     }
     handleSubmit = (e) => {
@@ -32,7 +34,12 @@ export default class SignIn extends Component {
                 console.log(json);
                 if (json.success) {
                     //TODO Success snackbar and redirect to signin Page
-                    this.setState({ success: json.success });
+                    localStorage.setItem("registrationSuccess","true");
+                    this.setState({ showSnackbar: json.success });
+                    this.setState({ success: true });
+                }
+                else {
+                    this.setState({ showSnackbar: "error" });
                 }
             })
     }
@@ -40,7 +47,8 @@ export default class SignIn extends Component {
     render() {
         return (
             (this.state.success) ?
-                <Redirect to="/signin" /> :
+                <Redirect to="/signin" />
+                :
                 <SignUpSide onRegister={this.handleSubmit} />
         )
     }

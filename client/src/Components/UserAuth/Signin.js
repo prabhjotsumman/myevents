@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import SignInSide from './SignInSide';
 import { Redirect } from 'react-router-dom';
+import CustomizedSnackbars from '../Snackbar';
 
 export default class SignIn extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             success: false,
             status: null,
             error: null,
             loggedin: false,
-            userProfile: {}
+            userProfile: {},
+            registrationSuccess: false
         }
     }
-    componentDidMount(){
+    componentDidMount() {
+        let registrationSuccess = JSON.parse(localStorage.getItem("registrationSuccess"));
+        if (registrationSuccess) {
+            this.setState({ registrationSuccess })
+            localStorage.setItem("registrationSuccess","false")
+        }
         let currentUser = JSON.parse(localStorage.getItem('currentActiveUserProfile'));
         if (currentUser) {
             const loggedin = currentUser.loggedin;
@@ -59,7 +66,19 @@ export default class SignIn extends Component {
 
     render() {
         return (
-            (this.state.loggedin) ? <Redirect to="/Dashboard" /> : <SignInSide onRegister={this.handleSubmit} />
+            <>
+                {
+                    (this.state.registrationSuccess) &&
+                    <CustomizedSnackbars variant="success" open={true} message="Registration is successful" />
+                }
+                {
+                    (this.state.error) &&
+                    <CustomizedSnackbars variant="error" message={this.state.error} />
+                }
+                {
+                    (this.state.loggedin) ? <Redirect to="/Dashboard" /> : <SignInSide onRegister={this.handleSubmit} />
+                }
+            </>
         )
     }
 }
