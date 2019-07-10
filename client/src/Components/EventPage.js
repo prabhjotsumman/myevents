@@ -27,7 +27,7 @@ export default class EventPage extends Component {
         return (
             <>
                 <AppBar position="fixed" />
-                <div style={{ flexGrow: 1, backgroundColor: '#dedede' }}>
+                <div style={{ flexGrow: 1, backgroundColor: '#dedede'}}>
                     <Container>
                         <img src="https://picsum.photos/1100/400" alt="poster" style={{ width: '100%', height: 'auto' }} />
                         {
@@ -96,8 +96,9 @@ export default class EventPage extends Component {
                             ) : ""
                         }
                     </Container>
-                    <Footer />
                 </div>
+                <Box m={1} />
+                    <Footer />
             </>
         )
     }

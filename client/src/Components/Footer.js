@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         minHeight: '30vh',
-        bottom:'0'
+        // bottom:'0'
     },
     main: {
         marginTop: theme.spacing(8),
@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
     },
     footer: {
         padding: theme.spacing(2),
-        marginTop: 'auto',
+        // marginTop: 'auto',
+        
         backgroundColor: '#2E3B55',
         color: 'white'
     },
@@ -26,12 +27,12 @@ export default function StickyFooter() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        // <div className={classes.root}>
             <footer className={classes.footer}>
                 <Container maxWidth="sm">
                     <Typography variant="body1">Site is developed by @prabhnith</Typography>
                 </Container>
             </footer>
-        </div>
+        // </div>
     );
 }
