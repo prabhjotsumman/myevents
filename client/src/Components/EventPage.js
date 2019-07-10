@@ -20,7 +20,7 @@ export default class EventPage extends Component {
             return item._id === eventID;
         });
         this.setState({ eventInfo });
-        console.log(eventInfo);
+        // console.log(eventInfo);
     }
 
     render() {

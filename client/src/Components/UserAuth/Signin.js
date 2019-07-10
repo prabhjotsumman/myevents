@@ -33,7 +33,7 @@ export default class SignIn extends Component {
         var obj = {};
         formData.forEach((value, key) => { obj[key] = value });
         var json = JSON.stringify(obj);
-        console.log(obj);
+        // console.log(obj);
         fetch('http://localhost:3001/getUser', {
             method: 'POST',
             headers: {
@@ -44,7 +44,7 @@ export default class SignIn extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (!data.success) {
                     //TODO: Email is incorrect, try again, no user found
                     this.setState({ error: data.error })
@@ -53,7 +53,7 @@ export default class SignIn extends Component {
                 if (data.error) {
                     //TODO:Password is incorrect
                     this.setState({ error: data.error })
-                    console.log(data.error);
+                    // console.log(data.error);
                 }
                 if (data.success) {
                     data.userProfile.loggedin = true;

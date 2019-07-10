@@ -40,7 +40,8 @@ export default class DisplayAllCompanies extends Component {
             .then(res => res.json())
             .then(json => json.data)
             .then(data => {
-                console.log(data);
+                // console.log(data);
+                localStorage.setItem('CompaniesArray', JSON.stringify(data));
                 this.setState({ companies: data });
             });
     }

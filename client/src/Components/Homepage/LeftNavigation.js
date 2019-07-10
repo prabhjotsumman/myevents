@@ -9,6 +9,7 @@ import TodayIcon from '@material-ui/icons/Today';
 import NextWeekIcon from '@material-ui/icons/NextWeek';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import CompanyFilter from "./CompanyFilter";
 // import AllEvents from '../Dashboard/AllEvents';
 import { Grid, Typography, Button } from '@material-ui/core';
 
@@ -43,46 +44,46 @@ export default function PermanentDrawerLeft() {
 
   return (
     // <div className={classes.root}>
-      <Grid item xs={2} md={2} lg={2}>
-        {/* <div className={classes.toolbar} /> */}
-        <br />
-        <Grid item>
-          <Typography align="center" color="primary">Filters</Typography>
-        </Grid>
-        <Divider />
-        <List>
-          <ListItem button>
-            <ListItemIcon><TrendingUpIcon /></ListItemIcon>
-            <ListItemText primary={"All Events"} />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon><TodayIcon /></ListItemIcon>
-            <ListItemText primary={"Today"} />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon><NextWeekIcon /></ListItemIcon>
-            <ListItemText primary={"Tommorrow"} />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon><WatchLaterIcon /></ListItemIcon>
-            <ListItemText primary={"Later"} />
-          </ListItem>
-        </List>
-        <Grid item>
-          <Typography align="center" color="primary" gutterBottom>Price Range</Typography>
-        </Grid>
-        
-        <div style={{margin:'10px'}} spacing={1}>
-          <Button variant="outlined" size="small" className={classes.margin}>
-            0-500
-        </Button>
-          <Button variant="outlined" size="small" className={classes.margin}>
-            500-1000
-        </Button>
-          <Button variant="outlined" size="small" className={classes.margin}>
-            >2000
-        </Button>
-        </div>
+    <Grid item xs={2} md={2} lg={2}>
+      {/* <div className={classes.toolbar} /> */}
+      <br />
+      <Grid item>
+        <Typography align="center" color="primary">Filters</Typography>
       </Grid>
+      <Divider />
+      <List>
+        <ListItem button>
+          <ListItemIcon><TrendingUpIcon /></ListItemIcon>
+          <ListItemText primary={"All Events"} />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon><TodayIcon /></ListItemIcon>
+          <ListItemText primary={"Today"} />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon><NextWeekIcon /></ListItemIcon>
+          <ListItemText primary={"Tommorrow"} />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon><WatchLaterIcon /></ListItemIcon>
+          <ListItemText primary={"Later"} />
+        </ListItem>
+      </List>
+      <Divider/>
+      <Grid item style={{ margin: '10px' }}>
+        <Typography align="center" color="primary" gutterBottom>Price Range</Typography>
+        <Button variant="outlined" size="small" className={classes.margin}>
+          0-500
+        </Button>
+        <Button variant="outlined" size="small" className={classes.margin}>
+          500-1000
+        </Button>
+        <Button variant="outlined" size="small" className={classes.margin}>
+          >2000
+        </Button>
+      </Grid>
+      <Divider/>
+      <CompanyFilter />
+    </Grid>
   );
 }
