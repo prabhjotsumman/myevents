@@ -54,7 +54,7 @@ export default class DisplayAllCompanies extends Component {
                         this.state.companies.map(company =>
                             <Grid item key={company}>
                                 <Title>{company}</Title>
-                                <AllEvents company={company} />
+                                <AllEvents company={company} count={5}/>
                                 <Divider />
                             </Grid>
                         )

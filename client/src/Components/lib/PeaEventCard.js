@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 // import PeaAvatar from "./PeaAvatar";
 import Icon from '@material-ui/core/Icon';
 import Button from "@material-ui/core/Button";
-import { Divider, Box } from "@material-ui/core";
+import { Divider, Box, Container } from "@material-ui/core";
 import {Link as RLink} from 'react-router-dom';
 
 // import AmountMoneyIcon from "@material-ui/icons/AttachMoney";
@@ -64,18 +64,16 @@ const PeaEventCard = ({ image, name, range, time, images, category, venue, id })
           </Typography>
         </Grid>
       </Grid>
-      <Grid container alignItems={"center"} >
-        <Grid item>
+      <Container alignItems={"center"} alignContent="center">
           <RLink to={"/event/"+id} style={{textDecoration:'none'}}>
-          <Button size="small" variant="contained" color="primary" >
-            Buy
-          </Button>
-          </RLink>
-          <Button size="small" color="primary">
+          <Button size="small" variant="outlined" color="primary" >
             More Info
           </Button>
-        </Grid>
-      </Grid>
+          </RLink>
+          {/* <Button size="small" color="primary">
+            More Info
+          </Button> */}
+      </Container>
     </CardContent>
   </Card>
 );
