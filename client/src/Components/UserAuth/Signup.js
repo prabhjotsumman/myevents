@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SignUpSide from './SignUpSide';
 import { Redirect } from 'react-router-dom';
 // import Snackbar from '../Snackbar';
+import events from '../../apis/events';
 
 export default class SignUp extends Component {
     constructor() {
@@ -19,23 +20,15 @@ export default class SignUp extends Component {
         const formData = new FormData(e.target);
         var obj = {};
         formData.forEach((value, key) => { obj[key] = value });
-        var json = JSON.stringify(obj);
+        // var json = JSON.stringify(obj);
         console.log(obj);
-        fetch('http://localhost:3001/putUser', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: json
-        })
-            .then(res => res.json())
+        events.post("/putUser",obj)
             .then(json => {
-                console.log(json);
-                if (json.success) {
+                console.log(json.data);
+                if (json.data.success) {
                     //TODO Success snackbar and redirect to signin Page
                     localStorage.setItem("registrationSuccess","true");
-                    this.setState({ showSnackbar: json.success });
+                    this.setState({ showSnackbar: json.data.success });
                     this.setState({ success: true });
                 }
                 else {

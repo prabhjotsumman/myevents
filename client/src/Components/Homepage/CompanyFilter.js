@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Typography, FormControlLabel, Checkbox } from '@material-ui/core';
+import events from '../../apis/events';
 
 export default class CompanyFilter extends Component {
     constructor(props) {
@@ -9,28 +10,14 @@ export default class CompanyFilter extends Component {
         }
     }
     componentDidMount() {
-        fetch(`http://localhost:3001/getAllCompanies`, {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            }
-        })
-            .then(res => res.json())
+        events.get("getAllCompanies")
             .then(json => json.data)
             .then(data => {
-                // console.log(data);
                 localStorage.setItem('CompaniesArray', JSON.stringify(data));
-                this.setState({ companies: data });
+                this.setState({ companies: data.data });
             })
     }
 
-    state = {
-        "Samsung": true,
-        "Google": true,
-        "Sapient": true,
-        "Amazon": true
-    }
     handleChange = name => event => {
         this.setState({ ...this.state, [name]: event.target.checked });
     }
@@ -49,7 +36,6 @@ export default class CompanyFilter extends Component {
                                             checked={this.state[company]}
                                             onChange={this.handleChange(company)}
                                             value={company}
-                                            
                                             color="primary"
                                         />
                                     }

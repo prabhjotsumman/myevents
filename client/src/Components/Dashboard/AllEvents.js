@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EventCard from "../EventCard";
 import Grid from "@material-ui/core/Grid";
+import events from '../../apis/events';
 
 export default class AllEvents extends Component {
   constructor(props) {
@@ -10,19 +11,11 @@ export default class AllEvents extends Component {
     };
   }
   componentDidMount() {
-    fetch(`http://localhost:3001/getAllEvents/${this.props.company}`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
+    events.get(`/getAllEvents/${this.props.company}`)
       .then(json => json.data)
       .then(eventsArray => {
-        // console.log(eventsArray);
         // localStorage.setItem('EventsArray',JSON.stringify(eventsArray));
-        this.setState({ Events: eventsArray });
+        this.setState({ Events: eventsArray.data });
       });
   }
   render() {

@@ -39,26 +39,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignUpSide(props) {
     const classes = useStyles();
-    // const [disableRegisterButton, setdisableRegisterButton] = React.useState(false);
-    // const [requiredValueFilled, setrequiredValueFilled] = React.useState(false);
-    // const [formError, setformError] = React.useState(false);
-
-    // const disableButton = (e) => {
-    //     setformError(true);
-    //     e.preventDefault();
-    //     setdisableRegisterButton(true);
-    //     const formData = new FormData(e.target);
-    //     var obj = {};
-    //     formData.forEach((value, key) => {
-    //         if (!value)
-    //             setrequiredValueFilled(false);
-    //         obj[key] = value;
-    //     });
-    //     if (!requiredValueFilled) {
-    //         setformError(true);
-    //     }
-    //     props.onRegister(e);
-    // }
     return (
         <Container component="main" maxWidth="xs">
 

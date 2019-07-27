@@ -28,7 +28,7 @@ const PeaEventCard = ({ image, name, range, time, images, category, venue, id })
       )} */}
     </CardMedia>
     <CardContent className={"MuiCardContent-root"}>
-      <Grid container spacing={1} alignContent={'center'}>
+      <Grid container spacing={1}>
         <Grid item>
           <Typography className={"MuiTypography--heading alignCenter"} align="center">{name}</Typography>
         </Grid>
@@ -64,7 +64,7 @@ const PeaEventCard = ({ image, name, range, time, images, category, venue, id })
           </Typography>
         </Grid>
       </Grid>
-      <Container alignItems={"center"} alignContent="center">
+      <Container>
           <RLink to={"/event/"+id} style={{textDecoration:'none'}}>
           <Button size="small" variant="outlined" color="primary" >
             More Info

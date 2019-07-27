@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SignInSide from './SignInSide';
 import { Redirect } from 'react-router-dom';
 import CustomizedSnackbars from '../Snackbar';
+import events from '../../apis/events';
 
 export default class SignIn extends Component {
     constructor(props) {
@@ -32,19 +33,11 @@ export default class SignIn extends Component {
         const formData = new FormData(e.target);
         var obj = {};
         formData.forEach((value, key) => { obj[key] = value });
-        var json = JSON.stringify(obj);
-        // console.log(obj);
-        fetch('http://localhost:3001/getUser', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: json
-        })
-            .then(response => response.json())
-            .then(data => {
+        
+        events.post("/getUser",obj)
+            .then(user => {
                 // console.log(data);
+                let data = user.data;
                 if (!data.success) {
                     //TODO: Email is incorrect, try again, no user found
                     this.setState({ error: data.error })

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AllEvents from '../Dashboard/AllEvents';
 import { Divider, Grid } from '@material-ui/core';
 import Title from '../Title';
+import events from '../../apis/events';
 
 export default class DisplayAllCompanies extends Component {
     constructor(props) {
@@ -12,38 +13,24 @@ export default class DisplayAllCompanies extends Component {
     }
 
     fetchAllEvents() {
-        fetch(`http://localhost:3001/getAllEvents/`, {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            }
-        })
-            .then(res => res.json())
+        events.get("/getAllEvents")
             .then(json => json.data)
             .then(eventsArray => {
-                // console.log(eventsArray);
                 localStorage.setItem('EventsArray', JSON.stringify(eventsArray));
-                this.setState({ Events: eventsArray });
+                this.setState({ Events: eventsArray.data });
+            });
+    }
+    fetchAllCompanies() {
+        events.get("/getAllCompanies")
+            .then(json => json.data)
+            .then(data => {
+                localStorage.setItem('CompaniesArray', JSON.stringify(data));
+                this.setState({ companies: data.data });
             });
     }
     componentDidMount() {
         this.fetchAllEvents();
-        // let eventsArray = JSON.parse(localStorage.getItem('eventsArray'));
-        fetch(`http://localhost:3001/getAllCompanies`, {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            }
-        })
-            .then(res => res.json())
-            .then(json => json.data)
-            .then(data => {
-                // console.log(data);
-                localStorage.setItem('CompaniesArray', JSON.stringify(data));
-                this.setState({ companies: data });
-            });
+        this.fetchAllCompanies();
     }
     render() {
         return (
@@ -54,7 +41,7 @@ export default class DisplayAllCompanies extends Component {
                         this.state.companies.map(company =>
                             <Grid item key={company}>
                                 <Title>{company}</Title>
-                                <AllEvents company={company} count={5}/>
+                                <AllEvents company={company} count={5} />
                                 <Divider />
                             </Grid>
                         )
@@ -62,6 +49,5 @@ export default class DisplayAllCompanies extends Component {
                 }
             </Grid>
         )
-
     }
 }

@@ -13,6 +13,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import { FormControl } from '@material-ui/core';
+import events from '../../apis/events';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -49,17 +50,9 @@ function handleSubmit(e) {
         obj.eventOrganisation = organisationName;
     }
     formData.forEach((value, key) => { obj[key] = value });
-    let json = JSON.stringify(obj);
+    // let json = JSON.stringify(obj);
     console.log(obj);
-    fetch('http://localhost:3001/addNewEvent', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: json
-    }).then(res => res.json())
-    .then(json => console.log(json));
+    events.post("/addNewEvent",obj);
 }
 
 export default function AddNewEvent() {
