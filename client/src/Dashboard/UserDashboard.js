@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PeaUserCard from '../lib/PeaUserCard';
 import { Grid, Typography, Divider } from '@material-ui/core';
+import PeaUserCard from '../Components/PeaUserCard';
 import AllEvents from './AllEvents';
 
 export default class UserDashboard extends Component {

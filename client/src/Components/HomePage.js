@@ -1,11 +1,12 @@
 import React from 'react';
-import AppBar from './Homepage/PrimarySearchAppBar';
-import LeftNav from './Homepage/LeftNavigation';
+import { makeStyles } from '@material-ui/core/styles';
+
+import AppBar from '../Homepage/PrimarySearchAppBar';
+import LeftNav from '../Homepage/LeftNavigation';
+import DisplayAllCompanies from '../Homepage/DisplayAllCompanies';
 import Footer from './Footer';
 // import AllEvents from './Dashboard/AllEvents';
-import { makeStyles } from '@material-ui/core/styles';
 // import Title from './Title';
-import DisplayAllCompanies from './Homepage/DisplayAllCompanies';
 
 const useStyles = makeStyles(theme => ({
     root: {

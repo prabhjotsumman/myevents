@@ -9,9 +9,10 @@ import TodayIcon from '@material-ui/icons/Today';
 import NextWeekIcon from '@material-ui/icons/NextWeek';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import { Grid, Typography, Button } from '@material-ui/core';
+
 import CompanyFilter from "./CompanyFilter";
 // import AllEvents from '../Dashboard/AllEvents';
-import { Grid, Typography, Button } from '@material-ui/core';
 
 const drawerWidth = 150;
 

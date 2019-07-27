@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DashboardLayout from './DashboardLayout';
 import { Redirect } from 'react-router-dom';
+import DashboardLayout from './DashboardLayout';
 
 export default class Dashboard extends Component {
   constructor() {

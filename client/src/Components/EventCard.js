@@ -1,5 +1,5 @@
 import React from "react";
-import PeaEventCard from "./lib/PeaEventCard";
+import PeaEventCard from "./PeaEventCard";
 
 // const AVATAR =
 //   "https://i.pinimg.com/originals/0a/dd/87/0add874e1ea0676c4365b2dd7ddd32e3.jpg";

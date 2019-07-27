@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import SignInSide from './SignInSide';
 import { Redirect } from 'react-router-dom';
-import CustomizedSnackbars from '../Snackbar';
-import events from '../../apis/events';
+
+import CustomizedSnackbars from '../Components/Snackbar';
+import SignInSide from './SignInSide';
+import events from '../apis/events';
 
 export default class SignIn extends Component {
     constructor(props) {

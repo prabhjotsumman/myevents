@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import SignUpSide from './SignUpSide';
 import { Redirect } from 'react-router-dom';
+
 // import Snackbar from '../Snackbar';
-import events from '../../apis/events';
+import SignUpSide from './SignUpSide';
+import events from '../apis/events';
 
 export default class SignUp extends Component {
     constructor() {

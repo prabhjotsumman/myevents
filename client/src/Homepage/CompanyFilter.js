@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Typography, FormControlLabel, Checkbox } from '@material-ui/core';
-import events from '../../apis/events';
+import events from '../apis/events';
 
 export default class CompanyFilter extends Component {
     constructor(props) {

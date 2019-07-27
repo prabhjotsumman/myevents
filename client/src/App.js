@@ -1,12 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import './App.css';
-import Signin from './Components/UserAuth/Signin';
-import Signup from './Components/UserAuth/Signup';
+
+import Signin from './UserAuth/Signin';
+import Signup from './UserAuth/Signup';
 import HomePage from './Components/HomePage';
 import EventPage from './Components/EventPage';
-
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Dashboard from './Components/Dashboard/Dashboard';
+import Dashboard from './Dashboard/Dashboard';
 
 // const loggedin = JSON.parse(localStorage.getItem('currentActiveUserProfile')).loggedin;
 

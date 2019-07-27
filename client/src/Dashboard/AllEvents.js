@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import EventCard from "../EventCard";
 import Grid from "@material-ui/core/Grid";
-import events from '../../apis/events';
+import EventCard from "../Components/EventCard";
+import events from '../apis/events';
 
 export default class AllEvents extends Component {
   constructor(props) {

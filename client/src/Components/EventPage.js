@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppBar from './Homepage/PrimarySearchAppBar';
+import AppBar from '../Homepage/PrimarySearchAppBar';
 import { Grid, Typography, Button, Icon, Box, Container } from '@material-ui/core';
 import Paper from './Paper';
 import Footer from './Footer';

@@ -15,14 +15,15 @@ import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import MainListItems from "../listItems";
+import { Link as RLink } from 'react-router-dom';
+
+import MainListItems from "../Components/listItems";
 import UserDashboard from './UserDashboard';
 import AddNewEvent from "./AddNewEvent";
 import AllEvents from "./AllEvents";
 import Profile from "./Profile";
 import Settings from "./Settings";
-import Footer from '../Footer';
-import { Link as RLink } from 'react-router-dom';
+import Footer from '../Components/Footer';
 
 const drawerWidth = 240;
 
